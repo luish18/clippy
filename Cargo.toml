@@ -3,6 +3,13 @@ name = "clippy"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+rodio = "0.14"  # For audio recording and playback
+whisper-rs = "0.1"  # Hypothetical crate for Whisper model integration
+reqwest = { version = "0.11", features = ["json"] }  # For API requests
+tokio = { version = "1", features = ["full"] }  # For async runtime
+serde = { version = "1.0", features = ["derive"] }  # For serialization/deserialization
+serde_json = "1.0"  # For handling JSON data
+
+[lib]
+crate-type = ["cdylib"]  # If you plan to create a dynamic library for integration with other languages
